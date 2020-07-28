@@ -1,11 +1,76 @@
-<testsuite name="orangehrm.Orange HRM logo" tests="1" errors="0" failures="0" skipped="0" time="10.415249" timestamp="2020-07-26T15:21:57.493393" hostname="elsys-VirtualBox"><testcase classname="orangehrm.Orange HRM logo" name="Logo presence on the Orange home page" status="passed" time="10.415249"><system-out>
+<testsuite name="orangehrm.Orange HRM logo" tests="1" errors="1" failures="0" skipped="0" time="759.042627" timestamp="2020-07-28T18:17:06.066058" hostname="elsys-VirtualBox"><testcase classname="orangehrm.Orange HRM logo" name="Logo presence on the Orange home page" status="failed" time="759.042627"><error type="ProtocolError" message="('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))">
+<![CDATA[
+Failing step: Given Launch chrome browser ... failed in 759.043s
+Location: orangehrm.feature:4
+Traceback (most recent call last):
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.8/http/client.py", line 1332, in getresponse
+    response.begin()
+  File "/usr/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.8/http/client.py", line 272, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "steps/orangeSteps.py", line 23, in launch_browser
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 157, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 252, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 402, in _request
+    resp = http.request(method, url, body=body, headers=headers)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/request.py", line 79, in request
+    return self.request_encode_body(
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/request.py", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/poolmanager.py", line 336, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 726, in urlopen
+    retries = retries.increment(
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 403, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 734, in reraise
+    raise value.with_traceback(tb)
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/elsys/PycharmProjects/bddPom/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.8/http/client.py", line 1332, in getresponse
+    response.begin()
+  File "/usr/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.8/http/client.py", line 272, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+]]>
+</error><system-out>
 <![CDATA[
 @scenario.begin
   Scenario: Logo presence on the Orange home page
-    Given Launch chrome browser ... passed in 3.557s
-    When open orange page ... passed in 4.720s
-    Then verify that the logo present ... passed in 0.015s
-    And close browser ... passed in 2.124s
+    Given Launch chrome browser ... failed in 759.043s
+    When open orange page ... skipped in 0.000s
+    Then verify that the logo present ... skipped in 0.000s
+    And close browser ... skipped in 0.000s
 
 @scenario.end
 --------------------------------------------------------------------------------
