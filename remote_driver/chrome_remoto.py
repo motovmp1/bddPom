@@ -8,7 +8,8 @@ options.add_experimental_option("excludeSwitches", ["enable-automation"])
 caps = options.to_capabilities()
 driver = webdriver.Remote(command_executor='http://localhost:4444/wd/hub',
                           desired_capabilities=caps)
-print(driver.capabilities['version'])
+# print(driver.capabilities['version']) old version works
+print(driver.capabilities['browserVersion']) # new version
 print(driver.name)
 driver.get('http://www.google.com/')
 print(driver.current_url)
